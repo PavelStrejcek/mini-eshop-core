@@ -1,0 +1,13 @@
+version: '3'
+services:
+    app:
+        build:
+            args:
+                WWW_DATA_UID: 1000
+                WWW_DATA_GID: 1000
+    db:
+        ports:
+            - "5432:5432"
+    nginx:
+        ports:
+          - "80:80"

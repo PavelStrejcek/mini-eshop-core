@@ -1,0 +1,20 @@
+search:
+	-
+		in: %appDir%
+		classes:
+			- *Factory
+			- *Facade
+
+
+services:
+	- App\Router\RouterFactory::createRouter
+	- App\Models\CnbRates('https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt')
+	- App\Commands\ExchangeRateImport
+	- App\Repositories\ExchangeRateRepository
+	- App\Repositories\ProductRepository
+	- App\Repositories\ProductPriceRepository
+	- App\Repositories\OrderRepository
+	- App\Repositories\OrderItemRepository
+	- App\Forms\OrderFormFactory
+
+

@@ -1,0 +1,50 @@
+{block content}
+<h1>Mini E-shop - nabídka produktů</h1>
+
+{control cartInfo}
+
+<div class="products">
+    <table>
+        <tr>
+            <th>Název</th>
+            <th>Cena CZK</th>
+            <th>Cena EUR</th>
+            <th>Štítky</th>
+            <th><a n:href="Cart:default">Přejít do košíku</a></th>
+        </tr>
+        {foreach $products as $product}
+            <tr>
+                <td><a n:href="Product:default productCoolUri:$product->cool_uri">{$product->name}</a></td>
+                {foreach $product->related('product_price')->order('currency ASC') as $productPrice}
+                    <td>{$productPrice->amount|number:2, ',', ' '}</td>
+                {/foreach}
+                <td>
+                    {foreach $product->related('product_label') as $productLabel}
+                        {$productLabel->label->name}
+                    {/foreach}
+                </td>
+                <td>
+                    <a n:href="cartInfo:addItem! $product->id" class="ajax">Koupit</a>
+                </td>
+            </tr>
+        {/foreach}
+    </table>
+</div>
+
+<div class="pagination">
+    {if $page > 1}
+        <a n:href="default, 1">První</a>
+        &nbsp;|&nbsp;
+        <a n:href="default, $page - 1">Předchozí</a>
+        &nbsp;|&nbsp;
+    {/if}
+
+        Stránka {$page} z {$lastPage}
+
+	{if $page < $lastPage}
+        &nbsp;|&nbsp;
+        <a n:href="default, $page + 1">Další</a>
+        &nbsp;|&nbsp;
+        <a n:href="default, $lastPage">Poslední</a>
+    {/if}
+</div>

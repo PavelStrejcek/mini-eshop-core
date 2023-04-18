@@ -1,0 +1,17 @@
+{**
+ * The Cart Info control template
+ *
+ * @param  float   $totalPriceCzk
+ * @param  float   $totalPriceEur
+ * @param  int     $numberOfItems
+ * @param  Control $control
+ *}
+
+{snippet}
+    <div class="cartInfo">
+        Položek v
+        košíku: {$numberOfItems} Celková cena: {$totalPriceCzk|number:2, ',', ' '} CZK / {$totalPriceEur|number:2, ',', ' '}
+        EUR
+
+    </div>
+{/snippet}

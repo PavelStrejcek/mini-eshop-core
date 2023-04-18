@@ -1,0 +1,8 @@
+{block content}
+<h1>Mini E-shop - detail produktu</h1>
+
+<p>Název produktu: {$product->name}<p>
+
+{foreach $product->related('product_price')->order('currency ASC') as $productPrice}
+    <p>Cena {$productPrice->currency}: {$productPrice->amount|number:2, ',', ' '}</p>
+{/foreach}

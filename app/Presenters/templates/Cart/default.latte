@@ -1,0 +1,35 @@
+{block content}
+<h1>Mini E-shop - košík</h1>
+
+{control cartInfo}
+
+<div class="products">
+    <table>
+        <tr>
+            <th>Název</th>
+            <th>Cena CZK</th>
+            <th>Cena EUR</th>
+            <th>Štítky</th>
+            <th>Množství</th>
+        </tr>
+        {foreach $products as $product}
+            <tr>
+                <td>{$product->name}</td>
+                {foreach $product->related('product_price')->order('currency ASC') as $productPrice}
+                    <td>{$productPrice->amount|number:2, ',', ' '}</td>
+                {/foreach}
+                <td>
+                    {foreach $product->related('product_label') as $productLabel}
+                        {$productLabel->label->name}
+                    {/foreach}
+                </td>
+                <td>
+                    {$cartSession[$product->id]}
+                </td>
+            </tr>
+        {/foreach}
+    </table>
+</div>
+
+{control orderForm}
+
