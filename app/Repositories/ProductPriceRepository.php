@@ -8,7 +8,7 @@ use Nette\Database\ResultSet;
 
 class ProductPriceRepository extends AbstractRepository
 {
-    const TABLE = 'product';
+    const TABLE = 'product_price';
 
     public function getTableName(): string
     {

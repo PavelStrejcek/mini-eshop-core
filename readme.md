@@ -6,21 +6,27 @@ This is an example of a pure Nette Framework solution without any other useful l
 Installation
 ------------
 
-1. clone this product from git to a directory
-2. go to the directory and copy the docker-compose.override.yml.dist file as docker-compose.override.yml
-3. create file config/local.neon empty or with your settings
-4. docker-compose up -d
-5. docker-compose exec app composer install
-6. open http://localhost in your browser
+1. Clone this project from Git into a directory, and make the directory writable.
 
-In case of problems, make sure that directory `.volumes/`, `temp/` and `log/` have write permissions set and files in directory `bin/`, `cron/` have execute permissions set.
+2. Navigate to the directory and copy the file docker-compose.override.yml.dist to docker-compose.override.yml.
 
-In the step 5, a database with sample data is also created and prices are recalculated according to the current EUR exchange rate from the CNB.
-It is possible to run the commands manually:
+3. Create the file config/local.neon, either empty or with your custom settings.
 
-docker-compose exec app php bin/init.php
+4. Run `docker-compose up -d`.
 
-docker-compose exec app php cron/exchange-rate-import.php
+5. Run `docker-compose exec app composer install`.
+
+Open http://localhost
+in your browser.
+
+If you encounter any issues, make sure the directories .volumes/, temp/, and log/, or the main project directory itself, have write permissions, and that files in the bin/ and cron/ directories have execute permissions.
+
+In step 5, a database with sample data is also created, and prices are recalculated according to the current EUR exchange rate from the CNB.
+These commands can also be run manually:
+
+`docker-compose exec app php bin/init.php`
+
+`docker-compose exec app php cron/exchange-rate-import.php`
 
 
 

@@ -19,7 +19,7 @@ class ProductRepository extends AbstractRepository
     public function findPublishedProducts(): Selection
     {
         return $this->getTable()
-            ->where('created_at < ', new DateTime)
+            ->where('created_at < ?', new DateTime)
             ->order('created_at DESC');
     }
 }
