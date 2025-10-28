@@ -12,14 +12,14 @@ class OrderFormFactory
     {
         $form = new Form;
         $form->addEmail('email', 'E-mail:')
-            ->setRequired('Zadejte prosím e-mail');
-        $form->addText('fullname', 'Jméno a příjmení:')
-            ->addRule($form::Pattern, 'Zadejte prosím jméno a příjmení', '.{3,}')
-            ->setRequired('Zadejte prosím jméno a příjmení');
-        $form->addText('phone', 'Telefon:')
-            ->addRule($form::Pattern, 'Zadejte prosím telefon', '[\d /*+-]{9,}')
-            ->setRequired('Zadejte prosím telefon');
-        $form->addSubmit('send', 'Vytvořit objednávku');
+            ->setRequired('Please enter an email address');
+        $form->addText('fullname', 'Full name:')
+            ->addRule($form::Pattern, 'Please enter your full name', '.{3,}')
+            ->setRequired('Please enter your full name');
+        $form->addText('phone', 'Phone:')
+            ->addRule($form::Pattern, 'Please enter a phone number', '[\d /*+-]{9,}')
+            ->setRequired('Please enter a phone number');
+        $form->addSubmit('send', 'Place Order');
 
         return $form;
     }
