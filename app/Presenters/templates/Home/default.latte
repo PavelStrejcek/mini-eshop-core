@@ -1,16 +1,16 @@
 {block content}
-<h1>Mini E-shop - nabídka produktů</h1>
+<h1>Mini E-shop - Product Catalog</h1>
 
 {control cartInfo}
 
 <div class="products">
     <table>
         <tr>
-            <th>Název</th>
-            <th>Cena CZK</th>
-            <th>Cena EUR</th>
-            <th>Štítky</th>
-            <th><a n:href="Cart:default">Přejít do košíku</a></th>
+            <th>Name</th>
+            <th>Price CZK</th>
+            <th>Price EUR</th>
+            <th>Tags</th>
+            <th><a n:href="Cart:default">Go to cart</a></th>
         </tr>
         {foreach $products as $product}
             <tr>
@@ -24,7 +24,7 @@
                     {/foreach}
                 </td>
                 <td>
-                    <a n:href="cartInfo:addItem! $product->id" class="ajax">Koupit</a>
+                    <a n:href="cartInfo:addItem! $product->id" class="ajax">Buy</a>
                 </td>
             </tr>
         {/foreach}
@@ -33,18 +33,18 @@
 
 <div class="pagination">
     {if $page > 1}
-        <a n:href="default, 1">První</a>
+        <a n:href="default, 1">First</a>
         &nbsp;|&nbsp;
-        <a n:href="default, $page - 1">Předchozí</a>
+        <a n:href="default, $page - 1">Previous</a>
         &nbsp;|&nbsp;
     {/if}
 
-        Stránka {$page} z {$lastPage}
+        Page {$page} of {$lastPage}
 
 	{if $page < $lastPage}
         &nbsp;|&nbsp;
-        <a n:href="default, $page + 1">Další</a>
+        <a n:href="default, $page + 1">Next</a>
         &nbsp;|&nbsp;
-        <a n:href="default, $lastPage">Poslední</a>
+        <a n:href="default, $lastPage">Last</a>
     {/if}
 </div>

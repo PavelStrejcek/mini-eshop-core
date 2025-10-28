@@ -1,16 +1,16 @@
 {block content}
-<h1>Mini E-shop - košík</h1>
+<h1>Mini E-shop - Cart</h1>
 
 {control cartInfo}
 
 <div class="products">
     <table>
         <tr>
-            <th>Název</th>
-            <th>Cena CZK</th>
-            <th>Cena EUR</th>
-            <th>Štítky</th>
-            <th>Množství</th>
+            <th>Name</th>
+            <th>Price CZK</th>
+            <th>Price EUR</th>
+            <th>Tags</th>
+            <th>Quantity</th>
         </tr>
         {foreach $products as $product}
             <tr>
@@ -32,4 +32,3 @@
 </div>
 
 {control orderForm}
-
