@@ -78,7 +78,7 @@ final class CartPresenter extends Presenter
 
         $section->remove();
 
-        $this->flashMessage('Objednávka byla odeslána. Děkujeme! Zboží se již připravuje.');
+        $this->flashMessage('The order has been submitted. Thank you! Your goods are already being prepared.');
         $this->redirect('Home:');
 
     }
